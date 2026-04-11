@@ -1151,7 +1151,7 @@
       background: var(--bg-2);
       border: 1px solid var(--border);
       transition: all 0.2s ease;
-      width: 100px;
+      min-width: 100px;
       box-sizing: border-box;
     }
 
@@ -1169,7 +1169,7 @@
       background: linear-gradient(135deg, var(--accent) 0%, #EA580C 100%);
       color: white;
       border: 1px solid transparent;
-      width: 100px;
+      min-width: 120px;
     }
 
     .project-card .project-link.demo-link:hover {
@@ -1976,6 +1976,43 @@
     .terminal-input::placeholder {
       color: #555;
     }
+
+    .project-modal-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .project-modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-1);
+      transition: all 0.2s ease;
+    }
+
+    .project-modal-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .project-modal-demo {
+      background: linear-gradient(135deg, var(--accent) 0%, #EA580C 100%);
+      color: white;
+      border: none;
+    }
+
+    .project-modal-demo:hover {
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+      color: white;
+    }
     }
   </style>
 </head>
@@ -2105,7 +2142,7 @@
             <span class="project-num">01</span>
             <h3 class="project-title">Lunex Terminal</h3>
           </div>
-          <p class="project-desc">Command-line shell in C with built-in commands, pipes, redirections, and web-based terminal.</p>
+          <p class="project-desc">C-based command shell with pipes, job control, redirections, and web-based terminal access.</p>
           <div class="project-terminal">
             <div class="project-terminal-header">
               <span class="project-terminal-dot red"></span>
@@ -2126,7 +2163,14 @@
               GitHub
             </a>
             <div class="project-card-links-right">
-              <a href="https://lunex-terminal.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link demo-link">Live Demo</a>
+              <a href="https://lunex-terminal.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
             </div>
           </div>
         </div>
@@ -2134,9 +2178,9 @@
         <div class="project-card reveal">
           <div class="project-card-header">
             <span class="project-num">02</span>
-            <h3 class="project-title">Financial Risk Analytics Dashboard</h3>
+            <h3 class="project-title">HabitFlow</h3>
           </div>
-          <p class="project-desc">Built analytics pipeline for VaR, volatility, and drawdown with Power BI dashboard.</p>
+          <p class="project-desc">Modern habit tracking app with gamification, XP system, streaks, and analytics dashboards.</p>
           <div class="project-terminal">
             <div class="project-terminal-header">
               <span class="project-terminal-dot red"></span>
@@ -2145,23 +2189,71 @@
               <span class="project-terminal-title">details.json</span>
             </div>
             <div class="project-terminal-body">
-              <div class="project-terminal-line"><span class="project-terminal-label">impact:</span> <span class="project-terminal-value">40% faster monitoring</span></div>
+              <div class="project-terminal-line"><span class="project-terminal-label">impact:</span> <span class="project-terminal-value">Gamified habit building</span></div>
               <div class="project-terminal-line"><span class="project-terminal-label">features:</span></div>
-              <div class="project-terminal-value"><li>VaR calculation</li><li>Live market API</li><li>Power BI dashboard</li><li>Anomaly detection</li></div>
-              <div class="project-terminal-tech"><span class="project-terminal-tag">Python</span><span class="project-terminal-tag">Pandas</span><span class="project-terminal-tag">Scikit-learn</span><span class="project-terminal-tag">Power BI</span></div>
+              <div class="project-terminal-value"><li>Dashboard & analytics</li><li>Streak & XP system</li><li>GitHub-style heatmap</li><li>Dark/light mode</li></div>
+              <div class="project-terminal-tech"><span class="project-terminal-tag">React</span><span class="project-terminal-tag">Vite</span><span class="project-terminal-tag">Tailwind</span><span class="project-terminal-tag">Recharts</span></div>
             </div>
           </div>
           <div class="project-card-links">
-            <a href="https://github.com/Ponjeyakumar-r/financial-risk-dashboard" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+            <a href="https://github.com/Ponjeyakumar-r/habit_tracker" target="_blank" rel="noopener noreferrer" class="project-link github-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub
             </a>
+            <div class="project-card-links-right">
+              <a href="https://habittracker-theta-three.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
+            </div>
           </div>
         </div>
         
         <div class="project-card reveal">
           <div class="project-card-header">
             <span class="project-num">03</span>
+            <h3 class="project-title">DocMind</h3>
+          </div>
+          <p class="project-desc">AI-powered document assistant using RAG and LLMs for Q&A over uploaded files.</p>
+          <div class="project-terminal">
+            <div class="project-terminal-header">
+              <span class="project-terminal-dot red"></span>
+              <span class="project-terminal-dot yellow"></span>
+              <span class="project-terminal-dot green"></span>
+              <span class="project-terminal-title">details.json</span>
+            </div>
+            <div class="project-terminal-body">
+              <div class="project-terminal-line"><span class="project-terminal-label">impact:</span> <span class="project-terminal-value">Chat with documents</span></div>
+              <div class="project-terminal-line"><span class="project-terminal-label">features:</span></div>
+              <div class="project-terminal-value"><li>PDF/TXT/MD upload</li><li>Auto-classification</li><li>Keyword search</li><li>Streaming responses</li></div>
+              <div class="project-terminal-tech"><span class="project-terminal-tag">Python</span><span class="project-terminal-tag">Flask</span><span class="project-terminal-tag">RAG</span><span class="project-terminal-tag">OpenRouter</span></div>
+            </div>
+          </div>
+          <div class="project-card-links">
+            <a href="https://github.com/Ponjeyakumar-r/docmind" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <div class="project-card-links-right">
+              <a href="https://docmind-6xll.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card reveal">
+          <div class="project-card-header">
+            <span class="project-num">04</span>
             <h3 class="project-title">ESG Portfolio Scoring Engine</h3>
           </div>
           <p class="project-desc">Multi-factor ESG scoring model for equity portfolios with interactive Plotly visualizations.</p>
@@ -2180,16 +2272,24 @@
             </div>
           </div>
           <div class="project-card-links">
-            <a href="https://github.com/Ponjeyakumar-r/esg-portfolio-scoring" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+            <a href="https://github.com/Ponjeyakumar-r/esg-dashboard" target="_blank" rel="noopener noreferrer" class="project-link github-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub
+            </a>
+            <a href="https://esg-dashboard-01.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
             </a>
           </div>
         </div>
         
         <div class="project-card reveal">
           <div class="project-card-header">
-            <span class="project-num">04</span>
+            <span class="project-num">05</span>
             <h3 class="project-title">Secure URL Shortener</h3>
           </div>
           <p class="project-desc">RESTful backend with JWT auth, Redis caching, Docker container, deployed on AWS cloud.</p>
@@ -2217,7 +2317,7 @@
         
         <div class="project-card reveal">
           <div class="project-card-header">
-            <span class="project-num">05</span>
+            <span class="project-num">06</span>
             <h3 class="project-title">Smart Energy Management</h3>
           </div>
           <p class="project-desc">IoT sensor monitoring system with Node.js backend and ThingSpeak for time-series storage.</p>
@@ -2245,7 +2345,7 @@
         
         <div class="project-card reveal">
           <div class="project-card-header">
-            <span class="project-num">06</span>
+            <span class="project-num">07</span>
             <h3 class="project-title">Cloud Attendance System</h3>
           </div>
           <p class="project-desc">AWS serverless app with Lambda, SNS notifications, and optimized MySQL database.</p>
@@ -2273,7 +2373,7 @@
         
         <div class="project-card reveal">
           <div class="project-card-header">
-            <span class="project-num">07</span>
+            <span class="project-num">08</span>
             <h3 class="project-title">Collaborative Doc Editor</h3>
           </div>
           <p class="project-desc">Real-time WebSocket editor with operational transform and Redis Pub/Sub synchronization.</p>
@@ -2313,7 +2413,7 @@
     <div class="mobile-projects">
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">01 / 07</div>
+          <div class="project-page-number">01 / 08</div>
           <h3 class="project-page-title">Lunex Terminal</h3>
           <p class="project-page-desc">Command-line shell in C with web-based terminal access.</p>
           <div class="project-page-tags">C | POSIX | Docker</div>
@@ -2322,7 +2422,12 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub
             </a>
-            <a href="https://lunex-terminal.onrender.com" target="_blank" rel="noopener noreferrer" class="github-btn">
+            <a href="https://lunex-terminal.onrender.com" target="_blank" rel="noopener noreferrer" class="github-btn" style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; border: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
               Live Demo
             </a>
           </div>
@@ -2330,31 +2435,73 @@
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">02 / 07</div>
-          <h3 class="project-page-title">Financial Risk Analytics Dashboard</h3>
-          <p class="project-page-desc">Analytics pipeline with VaR, volatility, and Power BI dashboard.</p>
-          <div class="project-page-tags">Python | Power BI | Scikit-learn</div>
-          <a href="https://github.com/Ponjeyakumar-r/financial-risk-dashboard" target="_blank" rel="noopener noreferrer" class="github-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
+          <div class="project-page-number">02 / 08</div>
+          <h3 class="project-page-title">HabitFlow</h3>
+          <p class="project-page-desc">Gamified habit tracking with XP, streaks, and analytics.</p>
+          <div class="project-page-tags">React | Vite | Tailwind</div>
+          <div class="project-page-buttons">
+            <a href="https://github.com/Ponjeyakumar-r/habit_tracker" target="_blank" rel="noopener noreferrer" class="github-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://habittracker-theta-three.vercel.app" target="_blank" rel="noopener noreferrer" class="github-btn" style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; border: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          </div>
         </div>
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">03 / 07</div>
+          <div class="project-page-number">03 / 08</div>
+          <h3 class="project-page-title">DocMind</h3>
+          <p class="project-page-desc">AI-powered document assistant with RAG & LLMs for Q&A.</p>
+          <div class="project-page-tags">Python | Flask | RAG</div>
+          <div class="project-page-buttons">
+            <a href="https://github.com/Ponjeyakumar-r/docmind" target="_blank" rel="noopener noreferrer" class="github-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://docmind-6xll.vercel.app/" target="_blank" rel="noopener noreferrer" class="github-btn" style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; border: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-project">
+        <div class="project-page-content">
+          <div class="project-page-number">04 / 08</div>
           <h3 class="project-page-title">ESG Portfolio Scoring Engine</h3>
           <p class="project-page-desc">Multi-factor ESG scoring model with Plotly visualizations.</p>
           <div class="project-page-tags">Python | Pandas | Plotly</div>
-          <a href="https://github.com/Ponjeyakumar-r/esg-portfolio-scoring" target="_blank" rel="noopener noreferrer" class="github-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
+          <div class="project-page-buttons">
+            <a href="https://github.com/Ponjeyakumar-r/esg-dashboard" target="_blank" rel="noopener noreferrer" class="github-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://esg-dashboard-01.streamlit.app/" target="_blank" rel="noopener noreferrer" class="github-btn" style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; border: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          </div>
         </div>
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">04 / 07</div>
+          <div class="project-page-number">05 / 08</div>
           <h3 class="project-page-title">Secure URL Shortener</h3>
           <p class="project-page-desc">RESTful backend with JWT auth, Redis caching, Docker & AWS.</p>
           <div class="project-page-tags">Java | Spring Boot | AWS</div>
@@ -2366,7 +2513,7 @@
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">05 / 07</div>
+          <div class="project-page-number">06 / 08</div>
           <h3 class="project-page-title">Smart Energy Management</h3>
           <p class="project-page-desc">IoT sensor monitoring with Node.js and ThingSpeak.</p>
           <div class="project-page-tags">Node.js | IoT | ThingSpeak</div>
@@ -2378,7 +2525,7 @@
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">06 / 07</div>
+          <div class="project-page-number">07 / 08</div>
           <h3 class="project-page-title">Cloud Attendance System</h3>
           <p class="project-page-desc">AWS serverless app with Lambda, SNS, and MySQL.</p>
           <div class="project-page-tags">AWS | Lambda | MySQL</div>
@@ -2390,7 +2537,7 @@
       </div>
       <div class="mobile-project">
         <div class="project-page-content">
-          <div class="project-page-number">07 / 07</div>
+          <div class="project-page-number">08 / 08</div>
           <h3 class="project-page-title">Collaborative Doc Editor</h3>
           <p class="project-page-desc">Real-time WebSocket editor with Redis Pub/Sub sync.</p>
           <div class="project-page-tags">Java | WebSocket | Redis</div>
@@ -2902,7 +3049,8 @@
         ],
         impact: 'Provides comprehensive ESG analysis for sustainable investment decisions.',
         tech: ['Python', 'Pandas', 'Scikit-learn', 'Plotly', 'SQL'],
-        repo: 'https://github.com/Ponjeyakumar-r/esg-portfolio-scoring'
+        repo: 'https://github.com/Ponjeyakumar-r/esg-dashboard',
+        demo: 'https://esg-dashboard-01.streamlit.app/'
       },
       3: {
         title: 'Secure URL Shortener',
@@ -2992,9 +3140,16 @@
           <div class="project-modal-section-title">Tech Stack</div>
           <div class="project-modal-tech">${project.tech.map(t => `<span class="project-modal-tech-tag">${t}</span>`).join('')}</div>
         </div>
-        <a href="${project.repo}" target="_blank" class="project-modal-link">
-          View on GitHub ↗
-        </a>
+        <div class="project-modal-links">
+          <a href="${project.repo}" target="_blank" class="project-modal-link">
+            View on GitHub ↗
+          </a>
+          ${project.demo ? `
+          <a href="${project.demo}" target="_blank" class="project-modal-link project-modal-demo">
+            View Live Demo ↗
+          </a>
+          ` : ''}
+        </div>
       `;
 
       projectModalBackdrop.classList.add('open');
@@ -3086,24 +3241,23 @@
 <span class="terminal-line"><span class="terminal-success">Stack:</span> C, C99, POSIX, Raw Sockets, Docker</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/Lunex-terminal</span>
 <span class="terminal-line"><span class="terminal-info">Demo:</span> lunex-terminal.onrender.com</span>`,
-          '2': `<span class="terminal-line terminal-info">Project 2: Financial Risk Analytics Dashboard</span>
+          '2': `<span class="terminal-line terminal-info">Project 2: HabitFlow</span>
 <span class="terminal-line"></span>
-<span class="terminal-line">An end-to-end analytics pipeline that computes:</span>
-<span class="terminal-line">• Value at Risk (VaR) using historical simulation</span>
-<span class="terminal-line">• Volatility metrics (annualized std deviation)</span>
-<span class="terminal-line">• Maximum Drawdown tracking</span>
+<span class="terminal-line">Modern habit tracking web application with gamification.</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">Features:</span>
-<span class="terminal-line">• Live market data ingestion via yfinance API</span>
-<span class="terminal-line">• Anomaly detection using Z-score methodology</span>
-<span class="terminal-line">• Interactive Power BI dashboard with drill-down</span>
-<span class="terminal-line">• Automated daily report generation</span>
+<span class="terminal-line">• Dashboard with today's habits and progress tracking</span>
+<span class="terminal-line">• Habit CRUD with custom icons and frequencies</span>
+<span class="terminal-line">• Analytics with weekly charts and statistics</span>
+<span class="terminal-line">• GitHub-style heatmap calendar for consistency</span>
+<span class="terminal-line">• Streak tracking (consecutive days)</span>
+<span class="terminal-line">• XP & leveling system with achievement badges</span>
+<span class="terminal-line">• Dark/light mode toggle</span>
+<span class="terminal-line">• Responsive design (desktop + mobile)</span>
 <span class="terminal-line"></span>
-<span class="terminal-line">Impact: Enabled real-time risk monitoring for portfolio</span>
-<span class="terminal-line">         decisions with 40% faster report generation.</span>
-<span class="terminal-line"></span>
-<span class="terminal-line"><span class="terminal-success">Stack:</span> Python, yfinance, Pandas, Scikit-learn, Power BI, SQL</span>
-<span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/financial-risk-dashboard</span>`,
+<span class="terminal-line"><span class="terminal-success">Stack:</span> React 18, Vite, Tailwind CSS 4, Recharts, Lucide React</span>
+<span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/habit_tracker</span>
+<span class="terminal-line"><span class="terminal-info">Demo:</span> habittracker-theta-three.vercel.app</span>`,
           '3': `<span class="terminal-line terminal-info">Project 3: ESG Portfolio Scoring Engine</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">Multi-factor ESG (Environmental, Social, Governance)</span>
@@ -3191,7 +3345,7 @@
         
         if (!projectNum) {
           return `<span class="terminal-line terminal-error">Usage: project <1-7></span>
-<span class="terminal-line terminal-info">Examples: project 1, project 3, project 5</span>`;
+<span class="terminal-line terminal-info">Examples: project 1, project 2, project 3</span>`;
         }
         
         if (projects[projectNum]) {
@@ -3200,7 +3354,7 @@
         
         return `<span class="terminal-line terminal-error">Project not found. Choose 1-7:</span>
 <span class="terminal-line">  1 - Lunex Terminal</span>
-<span class="terminal-line">  2 - Financial Risk Analytics Dashboard</span>
+<span class="terminal-line">  2 - HabitFlow</span>
 <span class="terminal-line">  3 - ESG Portfolio Scoring Engine</span>
 <span class="terminal-line">  4 - Secure URL Shortener</span>
 <span class="terminal-line">  5 - Smart Energy Management</span>
@@ -3229,7 +3383,7 @@
         return `<span class="terminal-line terminal-info">Recent Projects (7):</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">01. Lunex Terminal                   [C, POSIX, Docker, Sockets]</span>
-<span class="terminal-line">02. Financial Risk Analytics Dashboard  [Python, Power BI, Scikit-learn]</span>
+<span class="terminal-line">02. HabitFlow                        [React, Vite, Tailwind]</span>
 <span class="terminal-line">03. ESG Portfolio Scoring Engine        [Python, Pandas, Plotly]</span>
 <span class="terminal-line">04. Secure URL Shortener              [Java, Spring Boot, AWS, Redis]</span>
 <span class="terminal-line">05. Smart Energy Management          [Node.js, IoT, ThingSpeak]</span>
@@ -3237,7 +3391,7 @@
 <span class="terminal-line">07. Collaborative Doc Editor         [Java, WebSocket, Redis]</span>
 <span class="terminal-line"></span>
 <span class="terminal-line terminal-info">Type "project <number>" for detailed explanation.</span>
-<span class="terminal-line">Example: project 1, project 3, project 5</span>`;
+<span class="terminal-line">Example: project 1, project 2, project 3</span>`;
       },
       contact: () => {
         return `<span class="terminal-line">Contact Information:</span>
@@ -3462,54 +3616,26 @@
       
       const style = window.getComputedStyle(projectsGrid);
       const gap = parseFloat(style.gap) || 20;
-      const cardWidth = Math.round(cards[0].offsetWidth + gap);
+      const cardWidth = cards[0].offsetWidth + gap;
+      const currentPos = projectsGrid.scrollLeft;
+      const maxScroll = projectsGrid.scrollWidth - projectsGrid.clientWidth;
       
       if (e.key === 'ArrowRight') {
+        e.preventDefault();
         isScrollingCarousel = true;
-        const currentPos = Math.round(projectsGrid.scrollLeft);
-        const targetPos = currentPos + cardWidth;
-        projectsGrid.scrollTo({ left: targetPos, behavior: 'smooth' });
-        resetAutoScroll(projectsGrid, 12000);
+        const nextPos = Math.min(currentPos + cardWidth, maxScroll);
+        projectsGrid.scrollTo({ left: nextPos, behavior: 'smooth' });
         setTimeout(() => { isScrollingCarousel = false; }, 350);
       } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
         isScrollingCarousel = true;
-        const currentPos = Math.round(projectsGrid.scrollLeft);
-        const targetPos = Math.max(0, currentPos - cardWidth);
-        projectsGrid.scrollTo({ left: targetPos, behavior: 'smooth' });
-        resetAutoScroll(projectsGrid, 12000);
+        const prevPos = Math.max(0, currentPos - cardWidth);
+        projectsGrid.scrollTo({ left: prevPos, behavior: 'smooth' });
         setTimeout(() => { isScrollingCarousel = false; }, 350);
       }
     });
 
-    let autoScrollTimer;
-    const AUTO_SCROLL_INTERVAL = 5000;
 
-    function startAutoScroll(projectsGrid) {
-      const cards = projectsGrid.querySelectorAll('.project-card');
-      if (!cards.length) return;
-      
-      const style = window.getComputedStyle(projectsGrid);
-      const gap = parseFloat(style.gap) || 20;
-      const cardWidth = cards[0].offsetWidth + gap;
-      
-      autoScrollTimer = setInterval(() => {
-        const maxScroll = projectsGrid.scrollWidth - projectsGrid.clientWidth;
-        const currentScroll = projectsGrid.scrollLeft;
-        
-        if (currentScroll >= maxScroll - 5) {
-          projectsGrid.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          projectsGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        }
-      }, AUTO_SCROLL_INTERVAL);
-    }
-
-    function resetAutoScroll(projectsGrid, delay) {
-      clearInterval(autoScrollTimer);
-      autoScrollTimer = setTimeout(() => {
-        startAutoScroll(projectsGrid);
-      }, delay);
-    }
 
     function initCarousel() {
       const projectsGrid = document.querySelector('.projects-grid');
@@ -3540,7 +3666,6 @@
             const targetScrollLeft = i * cardWidth;
             dot.addEventListener('click', () => {
               projectsGrid.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-              resetAutoScroll(projectsGrid, 12000);
             });
             pagination.appendChild(dot);
             dots.push(dot);
@@ -3568,10 +3693,6 @@
         window.addEventListener('resize', () => {
           initPagination();
         });
-        
-        projectsGrid.addEventListener('wheel', () => resetAutoScroll(projectsGrid, 12000));
-        projectsGrid.addEventListener('touchstart', () => resetAutoScroll(projectsGrid, 12000));
-        setTimeout(() => startAutoScroll(projectsGrid), AUTO_SCROLL_INTERVAL);
       }
     }
 
