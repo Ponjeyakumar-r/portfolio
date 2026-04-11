@@ -213,16 +213,32 @@
       background: transparent;
     }
 
+    :root[data-theme="dark"] nav {
+      background: transparent;
+    }
+
+    :root[data-theme="light"] nav {
+      background: transparent;
+    }
+
     nav.scrolled {
       background: rgba(245,243,238,0.92);
       backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
     }
 
+    :root[data-theme="dark"] nav.scrolled {
+      background: rgba(17,16,9,0.92);
+    }
+
     @media (prefers-color-scheme: dark) {
       nav.scrolled {
         background: rgba(17,16,9,0.92);
       }
+    }
+
+    :root[data-theme="light"] nav.scrolled {
+      background: rgba(245,243,238,0.92);
     }
 
     nav .container {
