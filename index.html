@@ -177,23 +177,42 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 20px;
       transform: translate(-50%, -50%);
       transition: transform 0.1s ease, opacity 0.15s ease;
       background: none;
     }
     #cursor-dot::after {
-      content: '⭐';
-    }
-    #cursor-dot.cursor-hover {
-      transform: translate(-50%, -50%) scale(1.4);
+      content: '🤘';
     }
 
     #cursor-ring {
-      display: none;
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--text-3);
+      transform: translate(-50%, -50%);
+      transition: all 0.12s ease, width 0.2s ease, height 0.2s ease;
     }
 
+    #cursor-ring.cursor-hover {
+      width: 52px;
+      height: 52px;
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
 
+    #cursor-dot.cursor-hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+    }
 
     @media (pointer: coarse) {
       #cursor-dot, #cursor-ring { display: none; }
@@ -2797,22 +2816,68 @@
   <script>
     const startDate = new Date('2023-01-01');
     const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
     let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
     let terminalOpen = false;
     let hasBooted = false;
 
     if (window.matchMedia('(pointer: coarse)').matches) {
       document.body.style.cursor = 'auto';
       cursorDot.style.display = 'none';
+      cursorRing.style.display = 'none';
     } else {
       document.addEventListener('mousemove', (e) => {
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
       });
 
+      const trail = [];
+      const trailCount = 10;
+      for (let i = 0; i < trailCount; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail';
+        const size = 6 - i * 0.4;
+        dot.style.width = size + 'px';
+        dot.style.height = size + 'px';
+        document.body.appendChild(dot);
+        trail.push({ el: dot, x: 0, y: 0 });
+      }
+
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.14;
+        ringY += (mouseY - ringY) * 0.14;
+        cursorRing.style.left = ringX + 'px';
+        cursorRing.style.top = ringY + 'px';
+
+        for (let i = trail.length - 1; i > 0; i--) {
+          trail[i].x += (trail[i - 1].x - trail[i].x) * 0.2;
+          trail[i].y += (trail[i - 1].y - trail[i].y) * 0.2;
+        }
+        trail[0].x += (mouseX - trail[0].x) * 0.35;
+        trail[0].y += (mouseY - trail[0].y) * 0.35;
+
+        for (let i = 0; i < trail.length; i++) {
+          trail[i].el.style.left = trail[i].x + 'px';
+          trail[i].el.style.top = trail[i].y + 'px';
+          trail[i].el.style.opacity = 0.35 - i * 0.035;
+        }
+
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
       document.querySelectorAll('a, button, .contact-row, .pill').forEach(el => {
-        el.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-hover'));
+        el.addEventListener('mouseenter', () => {
+          cursorRing.classList.add('cursor-hover');
+          cursorDot.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorRing.classList.remove('cursor-hover');
+          cursorDot.classList.remove('cursor-hover');
+        });
       });
     }
 
