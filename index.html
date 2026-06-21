@@ -2101,7 +2101,7 @@
               <div class="stat-label">CGPA</div>
             </div>
             <div class="stat">
-              <div class="stat-number">7</div>
+              <div class="stat-number">8</div>
               <div class="stat-label">Projects</div>
             </div>
             <div class="stat">
@@ -3225,7 +3225,7 @@
 <span class="terminal-line">  about       — Learn more about me</span>
 <span class="terminal-line">  skills      — List my technical skills</span>
 <span class="terminal-line">  projects    — View my recent projects</span>
-<span class="terminal-line">  project <n> — Detailed info for project (1-6)</span>
+<span class="terminal-line">  project <n> — Detailed info for project (1-8)</span>
 <span class="terminal-line">  contact     — Get my contact information</span>
 <span class="terminal-line">  experience  — See my work history</span>
 <span class="terminal-line">  resume      — Download my resume</span>
@@ -3274,7 +3274,22 @@
 <span class="terminal-line"><span class="terminal-success">Stack:</span> React 18, Vite, Tailwind CSS 4, Recharts, Lucide React</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/habit_tracker</span>
 <span class="terminal-line"><span class="terminal-info">Demo:</span> habittracker-theta-three.vercel.app</span>`,
-          '3': `<span class="terminal-line terminal-info">Project 3: ESG Portfolio Scoring Engine</span>
+          '3': `<span class="terminal-line terminal-info">Project 3: DocMind</span>
+<span class="terminal-line"></span>
+<span class="terminal-line">AI-powered document assistant using RAG and LLMs</span>
+<span class="terminal-line">for Q&A over uploaded documents.</span>
+<span class="terminal-line"></span>
+<span class="terminal-line">Features:</span>
+<span class="terminal-line">• PDF/TXT/MD document upload and processing</span>
+<span class="terminal-line">• Auto-classification of document types</span>
+<span class="terminal-line">• Keyword-based document retrieval (inverted index)</span>
+<span class="terminal-line">• Streaming AI responses via OpenRouter API</span>
+<span class="terminal-line">• RESTful FastAPI backend with async endpoints</span>
+<span class="terminal-line"></span>
+<span class="terminal-line"><span class="terminal-success">Stack:</span> Python, FastAPI, React, RAG, OpenRouter, PyMuPDF</span>
+<span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/docmind</span>
+<span class="terminal-line"><span class="terminal-info">Demo:</span> docmind-6xll.vercel.app</span>`,
+          '4': `<span class="terminal-line terminal-info">Project 4: ESG Portfolio Scoring Engine</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">Multi-factor ESG (Environmental, Social, Governance)</span>
 <span class="terminal-line">scoring model for equity portfolio analysis.</span>
@@ -3290,7 +3305,7 @@
 <span class="terminal-line"></span>
 <span class="terminal-line"><span class="terminal-success">Stack:</span> Python, Pandas, Scikit-learn, Plotly, SQL</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/esg-portfolio-scoring</span>`,
-          '4': `<span class="terminal-line terminal-info">Project 4: Secure URL Shortener</span>
+          '5': `<span class="terminal-line terminal-info">Project 5: Secure URL Shortener</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">RESTful backend service for URL shortening with</span>
 <span class="terminal-line">enterprise-grade security and performance.</span>
@@ -3306,7 +3321,7 @@
 <span class="terminal-line"></span>
 <span class="terminal-line"><span class="terminal-success">Stack:</span> Java, Spring Boot, Spring Security, MySQL, Redis, Docker, AWS</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/url-shortener</span>`,
-          '5': `<span class="terminal-line terminal-info">Project 5: Smart Energy Management System</span>
+          '6': `<span class="terminal-line terminal-info">Project 6: Smart Energy Management System</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">IoT platform for real-time energy consumption</span>
 <span class="terminal-line">monitoring using wireless sensor networks.</span>
@@ -3323,7 +3338,7 @@
 <span class="terminal-line"></span>
 <span class="terminal-line"><span class="terminal-success">Stack:</span> Node.js, Express, REST APIs, IoT, ThingSpeak, MQTT</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/smart-energy-management</span>`,
-          '6': `<span class="terminal-line terminal-info">Project 6: Cloud Attendance System</span>
+          '7': `<span class="terminal-line terminal-info">Project 7: Cloud Attendance System</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">Serverless application for automated attendance</span>
 <span class="terminal-line">tracking with instant notifications.</span>
@@ -3340,7 +3355,7 @@
 <span class="terminal-line"></span>
 <span class="terminal-line"><span class="terminal-success">Stack:</span> AWS, Lambda, API Gateway, SNS, DynamoDB, MySQL</span>
 <span class="terminal-line"><span class="terminal-info">Repo:</span> github.com/Ponjeyakumar-r/cloud-attendance</span>`,
-          '7': `<span class="terminal-line terminal-info">Project 7: Collaborative Document Editor</span>
+          '8': `<span class="terminal-line terminal-info">Project 8: Collaborative Document Editor</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">Real-time collaborative text editor with operational</span>
 <span class="terminal-line">transformation for concurrent editing.</span>
@@ -3360,7 +3375,7 @@
         };
         
         if (!projectNum) {
-          return `<span class="terminal-line terminal-error">Usage: project <1-7></span>
+          return `<span class="terminal-line terminal-error">Usage: project <1-8></span>
 <span class="terminal-line terminal-info">Examples: project 1, project 2, project 3</span>`;
         }
         
@@ -3368,14 +3383,15 @@
           return projects[projectNum];
         }
         
-        return `<span class="terminal-line terminal-error">Project not found. Choose 1-7:</span>
+        return `<span class="terminal-line terminal-error">Project not found. Choose 1-8:</span>
 <span class="terminal-line">  1 - Lunex Terminal</span>
 <span class="terminal-line">  2 - HabitFlow</span>
-<span class="terminal-line">  3 - ESG Portfolio Scoring Engine</span>
-<span class="terminal-line">  4 - Secure URL Shortener</span>
-<span class="terminal-line">  5 - Smart Energy Management</span>
-<span class="terminal-line">  6 - Cloud Attendance System</span>
-<span class="terminal-line">  7 - Collaborative Document Editor</span>`;
+<span class="terminal-line">  3 - DocMind</span>
+<span class="terminal-line">  4 - ESG Portfolio Scoring Engine</span>
+<span class="terminal-line">  5 - Secure URL Shortener</span>
+<span class="terminal-line">  6 - Smart Energy Management</span>
+<span class="terminal-line">  7 - Cloud Attendance System</span>
+<span class="terminal-line">  8 - Collaborative Document Editor</span>`;
       },
       about: () => {
         return `<span class="terminal-line">ML Engineer & Data Analyst passionate about building</span>
@@ -3396,15 +3412,16 @@
 <span class="terminal-line">Practices:   REST APIs, JWT, CI/CD, Agile, WebSocket</span>`;
       },
       projects: () => {
-        return `<span class="terminal-line terminal-info">Recent Projects (7):</span>
+        return `<span class="terminal-line terminal-info">Recent Projects (8):</span>
 <span class="terminal-line"></span>
 <span class="terminal-line">01. Lunex Terminal                   [C, POSIX, Docker, Sockets]</span>
 <span class="terminal-line">02. HabitFlow                        [React, Vite, Tailwind]</span>
-<span class="terminal-line">03. ESG Portfolio Scoring Engine        [Python, Pandas, Plotly]</span>
-<span class="terminal-line">04. Secure URL Shortener              [Java, Spring Boot, AWS, Redis]</span>
-<span class="terminal-line">05. Smart Energy Management          [Node.js, IoT, ThingSpeak]</span>
-<span class="terminal-line">06. Cloud Attendance System          [AWS Lambda, SNS, MySQL]</span>
-<span class="terminal-line">07. Collaborative Doc Editor         [Java, WebSocket, Redis]</span>
+<span class="terminal-line">03. DocMind                          [Python, Flask, RAG, OpenRouter]</span>
+<span class="terminal-line">04. ESG Portfolio Scoring Engine        [Python, Pandas, Plotly]</span>
+<span class="terminal-line">05. Secure URL Shortener              [Java, Spring Boot, AWS, Redis]</span>
+<span class="terminal-line">06. Smart Energy Management          [Node.js, IoT, ThingSpeak]</span>
+<span class="terminal-line">07. Cloud Attendance System          [AWS Lambda, SNS, MySQL]</span>
+<span class="terminal-line">08. Collaborative Doc Editor         [Java, WebSocket, Redis]</span>
 <span class="terminal-line"></span>
 <span class="terminal-line terminal-info">Type "project <number>" for detailed explanation.</span>
 <span class="terminal-line">Example: project 1, project 2, project 3</span>`;
