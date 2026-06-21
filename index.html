@@ -172,11 +172,18 @@
     }
 
     #cursor-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--text-1);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
       transform: translate(-50%, -50%);
-      transition: transform 0.05s ease, opacity 0.15s ease;
+      transition: transform 0.1s ease, opacity 0.15s ease;
+      background: none;
+    }
+    #cursor-dot::after {
+      content: '🤘';
     }
 
     #cursor-ring {
@@ -188,13 +195,23 @@
     }
 
     #cursor-ring.cursor-hover {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-color: var(--accent);
+      background: var(--accent-dim);
     }
 
     #cursor-dot.cursor-hover {
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
     }
 
     @media (pointer: coarse) {
@@ -2817,11 +2834,37 @@
         cursorDot.style.top = mouseY + 'px';
       });
 
+      const trail = [];
+      const trailCount = 10;
+      for (let i = 0; i < trailCount; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail';
+        const size = 6 - i * 0.4;
+        dot.style.width = size + 'px';
+        dot.style.height = size + 'px';
+        document.body.appendChild(dot);
+        trail.push({ el: dot, x: 0, y: 0 });
+      }
+
       function animateRing() {
         ringX += (mouseX - ringX) * 0.14;
         ringY += (mouseY - ringY) * 0.14;
         cursorRing.style.left = ringX + 'px';
         cursorRing.style.top = ringY + 'px';
+
+        for (let i = trail.length - 1; i > 0; i--) {
+          trail[i].x += (trail[i - 1].x - trail[i].x) * 0.2;
+          trail[i].y += (trail[i - 1].y - trail[i].y) * 0.2;
+        }
+        trail[0].x += (mouseX - trail[0].x) * 0.35;
+        trail[0].y += (mouseY - trail[0].y) * 0.35;
+
+        for (let i = 0; i < trail.length; i++) {
+          trail[i].el.style.left = trail[i].x + 'px';
+          trail[i].el.style.top = trail[i].y + 'px';
+          trail[i].el.style.opacity = 0.35 - i * 0.035;
+        }
+
         requestAnimationFrame(animateRing);
       }
       animateRing();
